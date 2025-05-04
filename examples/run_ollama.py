@@ -55,31 +55,31 @@ def construct_society(question: str) -> RolePlaying:
     models = {
         "user": ModelFactory.create(
             model_platform=ModelPlatformType.OLLAMA,
-            model_type="qwen2.5:72b",
+            model_type="qwen2.5:1.5b",
             url="http://localhost:11434/v1",
             model_config_dict={"temperature": 0.8, "max_tokens": 1000000},
         ),
         "assistant": ModelFactory.create(
             model_platform=ModelPlatformType.OLLAMA,
-            model_type="qwen2.5:72b",
+            model_type="qwen2.5:1.5b",
             url="http://localhost:11434/v1",
             model_config_dict={"temperature": 0.2, "max_tokens": 1000000},
         ),
         "browsing": ModelFactory.create(
             model_platform=ModelPlatformType.OLLAMA,
-            model_type="llava:latest",
+            model_type="qwen2.5:1.5b",
             url="http://localhost:11434/v1",
             model_config_dict={"temperature": 0.4, "max_tokens": 1000000},
         ),
         "planning": ModelFactory.create(
             model_platform=ModelPlatformType.OLLAMA,
-            model_type="qwen2.5:72b",
+            model_type="qwen2.5:1.5b",
             url="http://localhost:11434/v1",
             model_config_dict={"temperature": 0.4, "max_tokens": 1000000},
         ),
         "image": ModelFactory.create(
             model_platform=ModelPlatformType.OLLAMA,
-            model_type="llava:latest",
+            model_type="qwen2.5:1.5b",
             url="http://localhost:11434/v1",
             model_config_dict={"temperature": 0.4, "max_tokens": 1000000},
         ),
@@ -126,8 +126,7 @@ def construct_society(question: str) -> RolePlaying:
 def main():
     r"""Main function to run the OWL system with an example question."""
     # Default research question
-    default_task = "Open Brave search, summarize the github stars, fork counts, etc. of camel-ai's camel framework, and write the numbers into a python file using the plot package, save it locally, and run the generated python file.
-Note: You have been provided with the necessary tools to complete this task."
+    default_task = "Open Brave search, summarize the github stars, fork counts, etc. of camel-ai's camel framework, and write the numbers into a python file using the plot package, save it locally, and run the generated python file.Note: You have been provided with the necessary tools to complete this task."
 
     # Override default task if command line argument is provided
     task = sys.argv[1] if len(sys.argv) > 1 else default_task
